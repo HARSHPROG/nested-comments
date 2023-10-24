@@ -3,6 +3,9 @@ import { ReactComponent as DownArrow } from '../assets/down-arrow.svg';
 import { ReactComponent as UpArrow } from '../assets/up-arrow.svg';
 import Action from './Action';
 
+
+// the logic in this file contains manipulating constants using useState and 
+// relieing on the DOM updatation thereafter
 const Comment = ({ comment }) => {
     const [input, setInput] = useState("");
     const [isEditing, setEditStatus] = useState(false);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Comment from "./components/Comment";
+import CommentManipulateConstUseState from "./components/Comment";
 import "./styles.css";
 
 const comments = {
@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <Comment comment={commentsData} />
+      <CommentManipulateConstUseState comment={commentsData} />
     </div>
   );
 }
