@@ -5,8 +5,14 @@ import Action from './Action';
 
 const Comment = ({ comment }) => {
     const [input, setInput] = useState("");
+    const [isEditing, setEditStatus] = useState(false);
 
     const onAddComment = () => {};
+
+    const onEditComment = (e) => {
+        setEditStatus(true)
+    }
+
     return (
         <div>
             <div style={{"display": "flex"}} className={comment.id === 1 ? "inputContainer" : "commentContainer" }> 
@@ -29,11 +35,18 @@ const Comment = ({ comment }) => {
                 ) : (
                     <>
                         <span style={{wordWrap: "break-word"}}> {comment.name} </span>
+                        {isEditing === false ? (
                         <div style={{display: "flex", marginTop: "5px"}}>
                             <Action className={"reply"} type="reply" />
-                            <Action className={"reply"} type="edit" />
+                            <Action className={"reply"} type="edit" handleClick={(e) => onEditComment(e)}/>
                             <Action className={"reply"} type="delete" />
                         </div>
+                        ): (
+                            <div style={{display: "flex", marginTop: "5px"}}>
+                                <Action className={"reply"} type="save" handleClick={() => setEditStatus(false)}/>
+                                <Action className={"reply"} type="cancel" handleClick={() => setEditStatus(false)}/>
+                            </div>
+                        )}
                     </>
                 ) }
             </div>
