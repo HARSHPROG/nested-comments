@@ -45,6 +45,7 @@ const Comment = ({
     <div>
       <div className={comment.id === 1 ? "inputContainer" : "commentContainer"}>
         {comment.id === 1 ? (
+          // if id is one, as part of this render inputContainer needs to be shown along with comment button
           <>
             <input
               type="text"
@@ -62,6 +63,7 @@ const Comment = ({
             />
           </>
         ) : (
+          // if comment id !1 then, actual comment is rendered
           <>
             <span
               contentEditable={editMode}
@@ -71,7 +73,7 @@ const Comment = ({
             >
               {comment.name}
             </span>
-
+            {/* for showing save, cancel if editMode is on  or otherwise show reply delete Edit*/}
             <div style={{ display: "flex", marginTop: "5px" }}>
               {editMode ? (
                 <>
@@ -126,6 +128,7 @@ const Comment = ({
       </div>
 
       <div style={{ display: expand ? "block" : "none", paddingLeft: 25 }}>
+        {/* when clicked on reply need to show indented input box to add comment and 2 buttons reply and cancel */}
         {showInput && (
           <div className="inputContainer">
             <input
@@ -146,6 +149,7 @@ const Comment = ({
           </div>
         )}
 
+        {/* call comment component again to enable recursion for rendering child elements */}
         {comment?.items?.map((cmnt) => {
           return (
             <Comment
