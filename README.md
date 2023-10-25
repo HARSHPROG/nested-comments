@@ -44,3 +44,6 @@ We can use conditional rendering, to show reply, edit, delete or save, cancel ba
 
 3) Lets add the reply functionality, when clicked on reply we should be able to add a comment, and as soon as reply is clicked we need to add input box with typing functionality along with buttons save and cancel.
 
+***2nd approach*** is making a custom hook useNode which has returns 3 functions insertNode editNode deleteNode.
+
+They directly manipulate the main comment object. Here implemented insert, update, delete node functionality like a tree recursive solution, so when it gets the required node, it performs the operation there.
